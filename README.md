@@ -11,10 +11,9 @@
 - [Resultados Experimentales](#resultados-experimentales)
 - [Interpretación y Conocimientos Clave](#interpretación-y-conocimientos-clave)
 - [Estructura del Repositorio](#estructura-del-repositorio)
-- [Configuración y Requisitos](#configuración-y-requisitos)
+- [Configuración y Requisitos](#%EF%B8%8F-configuración-y-requisitos)
 - [Cómo Ejecutar](#cómo-ejecutar)
-- [Despliegue del Modelo](#despliegue-del-modelo)
-- [Referencias](#referencias)
+- [Conclusiones Clave](#conclusiones-clave)
 
 ---
 
