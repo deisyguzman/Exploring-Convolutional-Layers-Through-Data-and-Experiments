@@ -4,7 +4,7 @@
 
 ---
 
-## 📋 Tabla de Contenidos
+## Tabla de Contenidos
 - [Descripción del Problema](#descripción-del-problema)
 - [Descripción del Dataset](#descripción-del-dataset)
 - [Diseño de Arquitectura](#diseño-de-arquitectura)
@@ -18,7 +18,7 @@
 
 ---
 
-## 🎯 Descripción del Problema
+## Descripción del Problema
 
 Este proyecto explora las **redes neuronales convolucionales (CNNs)** no como modelos de caja negra, sino como componentes arquitectónicos cuyas decisiones de diseño afectan directamente el rendimiento, escalabilidad e interpretabilidad.
 
@@ -42,7 +42,7 @@ En lugar de seguir una receta, este proyecto:
 
 ---
 
-## 📊 Descripción del Dataset
+## Descripción del Dataset
 
 ### Fashion-MNIST
 
@@ -84,7 +84,7 @@ Fashion-MNIST es ideal para estudiar capas convolucionales porque:
 
 ---
 
-## 🏗️ Diseño de Arquitectura
+## Diseño de Arquitectura
 
 ### Modelo Base (No Convolucional)
 
@@ -166,7 +166,7 @@ Dense(10, Softmax)
 
 ---
 
-## 🔬 Resultados Experimentales
+## Resultados Experimentales
 
 ### Modelo Base vs CNN
 
@@ -188,7 +188,7 @@ Dense(10, Softmax)
 
 | Tamaño de Kernel | Precisión de Prueba | Parámetros | Tiempo de Entrenamiento | Observaciones |
 |------------------|---------------------|------------|-------------------------|---------------|
-| **3×3** | ~91.5% | 94,000 | 45s | ✅ Mejor balance entre precisión y eficiencia |
+| **3×3** | ~91.5% | 94,000 | 45s | Mejor balance entre precisión y eficiencia |
 | **5×5** | ~91.3% | 250,000 | 65s | Más parámetros, precisión similar |
 | **7×7** | ~89-90% | 450,000 | 85s | Demasiado agresivo para imágenes 28×28 |
 
@@ -208,7 +208,7 @@ El notebook incluye:
 
 ---
 
-## 💡 Interpretación y Conocimientos Clave
+## Interpretación y Conocimientos Clave
 
 ### Por Qué las CNNs Superan al Modelo Base
 
@@ -245,7 +245,7 @@ La convolución es **inapropiada** para:
 
 ---
 
-## 📁 Estructura del Repositorio
+## Estructura del Repositorio
 
 ```
 Exploring-Convolutional-Layers-Through-Data-and-Experiments/
@@ -253,11 +253,9 @@ Exploring-Convolutional-Layers-Through-Data-and-Experiments/
 ├── README.md                                    # Documentación del proyecto
 ├── requirements.txt                             # Dependencias de Python (PyTorch)
 ├── .gitignore                                   # Reglas de ignorar de Git
-├── convolutional_layers_workshop.ipynb          # Notebook completo del taller ⭐
+├── convolutional_layers_workshop.ipynb          # Notebook completo
 │
-└── fashion_mnist_cnn_model_pytorch/             # Artefactos del modelo entrenado (generados)
-    ├── best_model.pth                           # State dict del modelo
-    └── complete_model.pth                       # Modelo completo
+└── fashion_mnist_cnn_model_pytorch/             # Artefactos del modelo entrenado 
 ```
 
 ---
@@ -309,7 +307,7 @@ onnx>=1.14.0  # Para exportación de modelos
 
 ---
 
-## 🚀 Cómo Ejecutar
+## Cómo Ejecutar
 
 ### Opción 1: Jupyter Notebook
 
@@ -333,12 +331,6 @@ onnx>=1.14.0  # Para exportación de modelos
 
 3. Ejecutar celdas en orden
 
-### Tiempo de Ejecución Esperado
-
-- **Ejecución completa del notebook**: ~15-20 minutos (CPU)
-- **Con GPU**: ~5-8 minutos
-
-### Salida
 
 El notebook:
 - Descargará Fashion-MNIST automáticamente (solo en la primera ejecución)
@@ -349,119 +341,12 @@ El notebook:
 
 ---
 
-## 🚀 Despliegue del Modelo
 
-### Opciones de Despliegue
 
-El modelo PyTorch puede ser desplegado usando varios métodos:
-
-#### **1. TorchServe (Recomendado)**
-- Framework oficial de PyTorch para servir modelos
-- APIs REST y gRPC
-- Fácil escalado y gestión
-
-#### **2. ONNX Runtime**
-- Convertir modelo a formato ONNX para despliegue multiplataforma
-- Rendimiento de inferencia optimizado
-- Funciona entre frameworks
-
-#### **3. Flask/FastAPI**
-- Envoltura simple de API web
-- Bueno para despliegue a pequeña escala
-- Fácil de personalizar
-
-#### **4. Servicios en la Nube**
-- AWS Sagemaker (contenedor PyTorch)
-- Google Cloud AI Platform
-- Azure Machine Learning
-
-### Ejemplo: Exportar a ONNX
-
-```python
-import torch
-
-# Cargar modelo
-model = torch.load('fashion_mnist_cnn_model_pytorch/complete_model.pth')
-model.eval()
-
-# Exportar a ONNX
-dummy_input = torch.randn(1, 1, 28, 28)
-torch.onnx.export(model, dummy_input, "fashion_mnist_cnn.onnx",
-                  input_names=['input'], output_names=['output'])
-```
-
----
-
-## 📚 Referencias
-
-### Dataset
-- **Fashion-MNIST**: 
-  - Xiao, H., Rasul, K., & Vollgraf, R. (2017). Fashion-MNIST: a Novel Image Dataset for Benchmarking Machine Learning Algorithms. arXiv:1708.07747.
-  - GitHub: https://github.com/zalandoresearch/fashion-mnist
-
-### Frameworks
-- **PyTorch**: https://pytorch.org/
-- **TorchVision**: https://pytorch.org/vision/
-- **ONNX**: https://onnx.ai/
-
-### Conceptos Arquitectónicos
-- Redes Neuronales Convolucionales (CNNs)
-- Sesgo Inductivo en Aprendizaje Profundo
-- Aprendizaje de Características Jerárquicas
-- Invariancia por Traslación
-
----
-
-## 🎓 Resultados de Aprendizaje
-
-Al completar este taller, podrás:
-
-✅ Entender por qué las CNNs funcionan mejor que las redes totalmente conectadas para imágenes  
-✅ Diseñar arquitecturas CNN con justificaciones explícitas  
-✅ Conducir experimentos controlados para aislar efectos arquitectónicos  
-✅ Interpretar resultados a través del lente del sesgo inductivo  
-✅ Reconocer cuándo NO usar convolución  
-✅ Desplegar modelos en infraestructura de nube de producción  
-
----
-
-## 📝 Entregables de la Asignación
-
-Este repositorio cumple con todos los requisitos de la asignación:
-
-- [x] **Exploración del Dataset (EDA)** - Sección 2
-- [x] **Modelo Base** - Sección 3
-- [x] **Diseño de Arquitectura CNN** - Sección 4
-- [x] **Experimentos Controlados** - Sección 5
-- [x] **Interpretación** - Sección 6
-- [x] **Despliegue del Modelo** - Sección 7
-- [x] **Notebook limpio y ejecutable** - Notebook completo del taller
-- [x] **README.md** - Este archivo
-
----
-
-## 🏆 Conclusiones Clave
+## Conclusiones Clave
 
 1. **Las redes neuronales no son cajas negras** – las elecciones arquitectónicas importan
 2. **El sesgo inductivo es una característica, no un error** – codifica conocimiento del dominio
 3. **La experimentación supera la intuición** – prueba las suposiciones sistemáticamente
 4. **La simplicidad a menudo gana** – los kernels 3×3 superan alternativas más grandes
 5. **Comprensión > Precisión** – saber POR QUÉ funciona tu modelo
-
----
-
-## 📧 Contacto
-
-Para preguntas o discusiones sobre este proyecto:
-- Abre un issue en este repositorio
-- Contacto: [Tu email/información de contacto]
-
----
-
-**Licencia**: Licencia MIT - siéntete libre de usar esto con fines educativos.
-
-**Agradecimientos**: Este proyecto se completó como parte de una asignación de curso de Redes Neuronales enfocada en comprender principios arquitectónicos en lugar de lograr rendimiento de vanguardia.
-
----
-
-*"El gran aprendizaje automático no se trata de seguir recetas – se trata de entender las suposiciones codificadas en tu arquitectura y si se alinean con la estructura de tu problema."*
