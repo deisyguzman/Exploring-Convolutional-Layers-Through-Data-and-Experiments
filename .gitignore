@@ -1,0 +1,85 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual Environment
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+*/.ipynb_checkpoints/*
+
+# TensorFlow/Keras
+*.h5
+*.hdf5
+*.pb
+*.ckpt*
+*.index
+*.data-*
+*.meta
+*.keras
+
+# Model Artifacts
+fashion_mnist_cnn_model/
+*.tar.gz
+model_artifacts/
+checkpoints/
+
+# Data
+*.csv
+*.npy
+*.npz
+data/
+datasets/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Logs
+*.log
+logs/
+tensorboard_logs/
+
+# AWS
+.aws_credentials
+.sagemaker/
+
+# MacOS
+.DS_Store
+.AppleDouble
+.LSOverride
+__MACOSX/
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
